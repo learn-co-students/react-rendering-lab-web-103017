@@ -10,6 +10,11 @@ class Animation extends React.Component {
     };
   }
 
+  componentWillUpdate() {
+    console.log('updating');
+    this.showLoadingBar()
+  }
+
   getNewCat = () => {
     fetch('http://api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC')
       .then((res, err) => {
@@ -25,9 +30,10 @@ class Animation extends React.Component {
   }
 
   showLoadingBar = () => {
+    console.log('loading');
     const progressBar = document.getElementById('progress-bar');
     progressBar.className = 'off on';
-    setTimeout(() => progressBar.className = 'off', 1100);
+    setTimeout(() => progressBar.className = 'off', 3100);
   }
 
   render() {
