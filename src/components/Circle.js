@@ -1,14 +1,15 @@
-import React from 'react';
+import React from "react";
 
 class Circle extends React.Component {
+  shouldComponentUpdate(x, y) {
+    return x !== y;
+  }
 
   render() {
     const { color } = this.props;
     console.log(`A ${color} circle was rendered!`);
 
-    return (
-      <div className={`circle ${color}`}></div>
-    )
+    return <div className={`circle ${color}`} />;
   }
 }
 
