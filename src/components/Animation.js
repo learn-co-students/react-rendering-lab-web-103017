@@ -10,6 +10,15 @@ class Animation extends React.Component {
     };
   }
 
+  shouldComponentUpdate(nextProps, nextState) {
+    //debugger
+    return (this.state.url !== nextState.url);
+  }
+
+  componentWillUpdate(nextProps, nextState) {
+    this.showLoadingBar();
+  }
+
   getNewCat = () => {
     fetch('http://api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC')
       .then((res, err) => {
